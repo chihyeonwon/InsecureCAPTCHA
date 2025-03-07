@@ -14,13 +14,16 @@ recaptcha_public_key = Site Key, recaptcha_private_key = Secret Key 넣어 주�
 
 다음과 같은 화면이 뜨셨다면 캡차 등록이 정상적으로 되신겁니다.    
 
+#### Low레벨
 Low레벨의 소스코드를 보면 step ==1 값과 step==2 값이 있는데 실제 패스워드 변경후 성공되었을경우 step==2의 값으로 보내는것을 확인할수 있습니다. 그럼 여기서 버프스위트를 통해 캡차 우회를 해보도록 하겠습니다.    
 
 간단하게 패스워드만 입력후 버프스위트에서 패킷을 잡은 모습입니다. 여기서 step 값을 2로 변경해주신후 [Forward] 버튼으로 프록시를 넘겨주면 캡차인증없이 간단히 패스워드가 변경되는 모습을 볼수 있습니다.    
 
+#### Medium레벨
 Medium레벨의 소스코드에서는 passed_captcha 가 추가된 것을 볼 수 있습니다. 여기서도 마찬가지로 버프스위트를 이용하여 우회가 가능합니다.     
 step=2&password_new=password&password_conf=password&passed_captcha=true&Change=Change 이렇게 추가해 주신후 패킷을 넘겨주면 정상적으로 변경된 모습을 보실수 있습니다. 이 부분은 직접 해보시기 바랍니다.     
 
+#### High레벨
 High레벨의 소스코드를 보시면 if 문을 통해 캡차 값과 User Agent 조건을 검사를 하고 있습니다.     
 여기서도 버프스위트를 통해 우회가 가능합니다. 일단 User Agent 값과 g-recaptcha-response 값을 변경후 패킷을 넘겨주면 패스워드를 바꾸실 수 있습니다.     
 
